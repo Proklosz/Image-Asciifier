@@ -1,0 +1,14 @@
+#canvas {
+  background-color: #000000;
+  color: #ffffff;
+
+  font-size: 12px; /* Adjust the size according to your preference */
+  letter-spacing: -2px;
+}
+#vbox {
+  margin: 10px;
+}
+#button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
