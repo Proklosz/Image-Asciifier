@@ -1,10 +1,10 @@
 ## ependencies (if not installed)
-### gtkmm :
+    ### gtkmm :
 
-```bash
-sudo apt-get install libgtkmm-3.0-dev
+    ```bash
+    sudo apt-get install libgtkmm-3.0-dev
 
-```
+    ```
 
 ### opencv :
 
