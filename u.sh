@@ -7,5 +7,6 @@ rm -f "$HOME/Asztal/AsciiGen.desktop"
 # Inform the user
 echo "Uninstallation complete."
 
-# Prompt for user input to prevent the script from exiting immediately
-read -p "Press Enter to exit..."
+
+echo "press ENTER to exit\n"
+read anithing

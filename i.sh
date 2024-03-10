@@ -20,7 +20,10 @@ echo "Files copied"
 sudo chmod +x /usr/local/bin/AsciiGen/Ascii_art_maker || { echo "Failed to set permissions."; exit 1; }
 echo "Permission given to executable"
 
+
+
 sudo chmod +x ./UNINSTALL.sh || { echo "Failed to set permissions."; exit 1; }
+
 sudo chmod +x ./u.sh || { echo "Failed to set permissions."; exit 1; }
 
 # Get the path to the desktop directory using xdg-user-dirs-update
@@ -41,4 +44,6 @@ EOF
 # Inform the user
 echo "Installation complete."
 
+echo "press ENTER to exit\n"
+read anithing
 
