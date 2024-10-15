@@ -1,6 +1,7 @@
 #include <gtkmm.h>
 #include <iostream>
 #include <opencv2/opencv.hpp>
+#include <vector>
 
 using namespace std;
 using namespace Gtk;
@@ -25,8 +26,23 @@ private:
 
   std::string filename;
   string res;
-  int shadeNum = 5;
-  std::vector<string> shade = {"⠀", "░", "▒", "▓", "█"};
+  int shadeNum = 70;
+  // std::vector<string> shade = {"⠀", "░", "▒", "▓", "█"};
+  //  std::vector<string> shade = {
+  //      "$", "@", "B", "%", "8", "&", "W", "M", "#",  "*", "o", "a", "h", "k",
+  //      "b", "d", "p", "q", "w", "m", "Z", "O", "1",  "Q", "L", "C", "J", "U",
+  //      "Y", "X", "z", "c", "v", "u", "n", "x", "r",  "j", "f", "t", "/",
+  //      "\\",
+  //      "|", "(", ")", "1", "{", "}", "[", "]", "?",  "-", "_", "+", "~", "<",
+  //      ">", "i", "!", "l", "I", ";", ":", ",", "\"", "^", "`", "'", ".", "
+  //      "};
+
+  std::vector<string> shade = {
+      " ",  ".", "'", "`", "^", "\"", ",", ":", ";", "I", "l", "!", "i", ">",
+      "<",  "~", "+", "_", "-", "?",  "]", "[", "}", "{", "1", ")", "(", "|",
+      "\\", "/", "t", "f", "j", "r",  "x", "n", "u", "v", "c", "z", "X", "Y",
+      "U",  "J", "C", "L", "Q", "1",  "O", "Z", "m", "w", "q", "p", "d", "b",
+      "k",  "h", "a", "o", "*", "#",  "M", "W", "&", "8", "%", "B", "@", "$"};
 
   void on_copy_button_clicked(Gtk::Label &label);
   void on_button_clicked();
@@ -49,7 +65,7 @@ MainWindow::MainWindow() {
   vbox.set_name("vbox");
   add(vbox);
 
-  vbox.pack_start(charsHbox, PACK_SHRINK);
+  // vbox.pack_start(charsHbox, PACK_SHRINK);
   charsHbox.set_name("chb");
 
   Defult.set_label("Default");
@@ -102,7 +118,7 @@ MainWindow::MainWindow() {
   vbox.pack_start(copy_button, PACK_SHRINK);
 }
 
-MainWindow::~MainWindow(){
+MainWindow::~MainWindow() {
 
 };
 
@@ -290,7 +306,9 @@ void MainWindow::Ascify(string filename) {
 
       // Map grayscale to range [0, 4]
       // int brightness = grayscale / 64;
-      int brightness = grayscale / (256 / (shadeNumR - 1));
+      // int brightness = grayscale / (256 / (shadeNumR - 1));
+      int brightness =
+          std::min(std::max(grayscale / (256 / (shadeNumR)), 0), shadeNumR - 1);
 
       // Assign the brightness value to the map
       brightnessMap[y][x] = brightness;
